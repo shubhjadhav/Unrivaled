@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "./header.css";
+import "./header.css"
 
 class Header extends Component {
     state = {  } 
@@ -7,7 +7,7 @@ class Header extends Component {
         return (
             <div className='headerWrapper'>
                 <div className='logo'>
-                    <img src="https://static.xx.fbcdn.net/rsrc.php/y8/r/dF5SId3UHWd.svg" width="112" class="img" alt="facebook"/>
+                    <img src="C:/Users/The Marry/test/Unrivaled/UI/src/images/logo-png.png" />
                 </div>
                 <div className='userDetails'>"Hi Shubham"</div> 
             </div>
