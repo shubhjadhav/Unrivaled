@@ -1,0 +1,33 @@
+.candidate-wrapper{
+
+    background-color: blue;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+}
+
+.navbar{
+    height: 100vh;
+    width: 7vw;
+    background-color: yellow;
+}
+
+.main-section{
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    display: flex;
+}
+
+.resumes{
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}
+
+.jd{
+    width: 50%;
+    height: 100%;
+    background-color: pink;
+}
