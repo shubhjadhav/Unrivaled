@@ -15,5 +15,7 @@ end
 
 @post "/uploadFile" upload_file
 
+@post "/saveUserDeatils" save_user_details
+
 # start the web server
 serve()

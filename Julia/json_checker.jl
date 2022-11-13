@@ -1,4 +1,5 @@
 using JSON
+include("../db_connections/db_connections.jl")
 
 function subtract(req, a::Float64, b::Float64)
   return a - b
@@ -18,6 +19,13 @@ function upload_file(req)
   # deserialize JSON from the request body into an Animal struct
   # resume = json(req, data)
   # serialize struct back into JSON automatically (because we used StructTypes)
+  str = String(req.body)
+  print(str)
+  return true
+end
+
+
+function save_user_details(req)
   str = String(req.body)
   print(str)
   return true
