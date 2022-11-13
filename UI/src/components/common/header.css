@@ -6,15 +6,15 @@
 }
 .logo{
     position: absolute;
-    top: 2rem;
+    top: 30px;
     left: 100px;
 }
 .userDetails{
     position: absolute;
-    top: 3rem;
+    top: 39px;
     right:100px;
     font-family: Helvetica;
-    font-size: 22px;
+    font-size: 24px;
 
 }
 

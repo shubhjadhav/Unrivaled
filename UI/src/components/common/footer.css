@@ -1,0 +1,31 @@
+.footerWrapper{
+    position: absolute;
+    background-color: #81A2F8;
+    top: 850px;
+    width: 1650px;
+    height: 100px;
+}
+.logoGoogle{
+    position: absolute;
+    top: 30px;
+    left: 200px;
+}
+.logoMeta{
+    position: absolute;
+    top: 36px;
+    left: 570px;
+}
+.logoMicrosoft{
+    position: absolute;
+    top: 37px;
+    left: 970px;
+
+}
+.logoIBM{
+    position: absolute;
+    height: 20px;
+    top: 35px;
+    right: 200px;
+    
+}
+
