@@ -10,7 +10,7 @@ class Header extends Component {
                 <div className='logo'>
                     <img src={logo} width="150" class="img" alt="facebook"/>
                 </div>
-                <div className='userDetails'>"Hi Shubham!"</div> 
+                <div className='userDetails'>"Welcome!"</div> 
             </div>
         );
     }

@@ -6,13 +6,23 @@ class login extends Component {
     render() { 
         return (
             <div className='loginWrapper'>
-                <div className='loginText'>"Login"</div> 
-                <div className='emailText'>"Email"</div> 
+                <div className='loginText'>Login</div> 
+                <div className='emailText'>Email</div> 
                 <div className='emailBox'></div> 
-                <div className='passwordText'>"Password"</div> 
+                <div className='passwordText'>Password</div> 
                 <div className='passwordBox'></div> 
-                <div className='signinText'>"Sign in"</div> 
-                <div className='createAccText'>"Create an Account"</div> 
+                
+                <div className='signInButtom'>
+                    <text>Sign 
+                        in
+                    </text>
+                </div> 
+
+                <div className='createAccButtom'>
+                    <text>Create 
+                        an Account
+                    </text>
+                </div> 
 
                 
 
@@ -21,4 +31,4 @@ class login extends Component {
     }
 }
  
-export default Header;
+export default login;

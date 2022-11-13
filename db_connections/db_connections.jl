@@ -9,8 +9,18 @@ unrivaled = client["unrivaled"]
 # accessing the collection in the unrivaled database
 user_details = unrivaled["user_details"]
 resumes = unrivaled["resumes"]
-job_descriptions = ["job_descriptions"]
+job_descriptions = unrivaled["job_descriptions"]
 scores = unrivaled["scores"]
+
+# This funciton is used to show the contents of a given database
+function show_db(db_name)
+    doc_list = Mongoc.find(db_name)
+    println("The db ",string(db_name), " is: ")
+    for each in doc_list
+        println(each)
+    end
+    println()
+end
 
 # Create DB Entry
 # This input is a dictionary from the UI but I am using a sample here.
@@ -22,7 +32,7 @@ function user_detail_upload(dictionary)
     append!(user_details, vector)
     println("The user's details are successfully uploaded.")
 end
-user_detail_upload(cur_dict)
+# user_detail_upload(cur_dict)
 
 # This funciton takes file upload info and adds it to the resumes collection
 function resume_upload(dictionary)
@@ -64,7 +74,8 @@ end
 function is_registered_user(dictionary)
     login_user_name = dictionary["Name"]
     login_password = dictionary["password"]
-    user_db_data_BSON = Mongoc.find(user, Mongoc.BSON("""{"Name": "$login_user_name"}"""))
+    println("The user name is $login_user_name and the password is $login_password")
+    user_db_data_BSON = Mongoc.find(user_details, Mongoc.BSON("""{"Name": "$login_user_name"}"""))
     registered = false
 
     for each in user_db_data_BSON
@@ -80,4 +91,8 @@ function is_registered_user(dictionary)
     end
     return registered
 end
-is_registered_user(Dict("Name"=> "Hello", "password" => "ehel"))
+is_registered_user(Dict("Name"=> "Hello", "password" => "1234"))
+show_db(user_details)
+show_db(resumes)
+show_db(job_descriptions)
+show_db(scores)
