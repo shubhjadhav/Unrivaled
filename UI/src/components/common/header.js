@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import "./header.css"
+import "./header.css";
+import logo from "../../images/logo-svg 1.png";
 
 class Header extends Component {
     state = {  } 
@@ -7,12 +8,13 @@ class Header extends Component {
         return (
             <div className='headerWrapper'>
                 <div className='logo'>
-                    <img src="C:/Users/The Marry/test/Unrivaled/UI/src/images/logo-png.png" />
+                    <img src={logo} width="150" class="img" alt="facebook"/>
                 </div>
-                <div className='userDetails'>"Hi Shubham"</div> 
+                <div className='userDetails'>"Welcome!"</div> 
             </div>
         );
     }
 }
  
 export default Header;
+

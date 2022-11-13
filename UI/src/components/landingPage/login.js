@@ -1,0 +1,34 @@
+import React, { Component } from 'react';
+import "./login.css";
+
+class login extends Component {
+    state = {  } 
+    render() { 
+        return (
+            <div className='loginWrapper'>
+                <div className='loginText'>Login</div> 
+                <div className='emailText'>Email</div> 
+                <div className='emailBox'></div> 
+                <div className='passwordText'>Password</div> 
+                <div className='passwordBox'></div> 
+                
+                <div className='signInButtom'>
+                    <text>Sign 
+                        in
+                    </text>
+                </div> 
+
+                <div className='createAccButtom'>
+                    <text>Create 
+                        an Account
+                    </text>
+                </div> 
+
+                
+
+            </div>
+        );
+    }
+}
+ 
+export default login;

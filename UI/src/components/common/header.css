@@ -1,4 +1,20 @@
 .headerWrapper{
-    display:flex;
-    justify-content: space-between;
+    background-color: #F6F6F6;
+    width: 1650px;
+    height: 100px;
+    opacity: ;
 }
+.logo{
+    position: absolute;
+    top: 30px;
+    left: 100px;
+}
+.userDetails{
+    position: absolute;
+    top: 39px;
+    right:100px;
+    font-family: Helvetica;
+    font-size: 24px;
+
+}
+
