@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Table from '../common/table';
+import Upload from '../common/upload';
 
 class Resumes extends Component {
     state = {  } 
@@ -9,7 +11,8 @@ class Resumes extends Component {
                     <text>RESUMES</text>
                 </div>
                 <div className='content-list'>
-
+                    <Table />
+                    <Upload />
                 </div>
             </div>
         );

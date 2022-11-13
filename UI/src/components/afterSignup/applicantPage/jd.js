@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Upload from '../common/upload';
 
 class JD extends Component {
     state = {  } 
@@ -9,7 +10,7 @@ class JD extends Component {
                     <text>JOB DESCRIPTIONS</text>
                 </div>
                 <div className='content-list'>
-
+                    <Upload />
                 </div>
             </div>
         );

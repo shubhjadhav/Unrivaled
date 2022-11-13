@@ -1,0 +1,50 @@
+.upload-wrapper{
+    width: 70%;
+    height: 50px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    justify-content: space-around;
+    align-items: center;
+    margin: 20px;
+}
+
+.upload-logo{
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+}
+
+.table-wrapper{
+    margin: 10px;
+    width: 90%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 10px;
+}
+
+.MuiTable-root{
+    min-width: 100% !important;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.MuiTableCell-root{
+    cursor: default;
+}
+
+.MuiTableCell-body{
+    cursor: pointer !important;
+}
+
+.MuiTableRow-hover{
+    background-color: aqua;
+}
+
+.table-header{
+    font-weight: 800 !important;
+}
