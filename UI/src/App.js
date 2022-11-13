@@ -4,11 +4,19 @@ import './App.css';
 import Candidate from './components/afterSignup/applicantPage/candidate';
 import { useSelector } from "react-redux";
 
+import Header from './components/common/header.js';
+import Login from './components/landingPage/login.js';
 
 function App() {
   return (
-    <Candidate />
+
+    <div className="App">
+      <Header/>
+    </div>
+
   );
+
 }
+
 
 export default App;
