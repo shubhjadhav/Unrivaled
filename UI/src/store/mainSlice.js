@@ -19,6 +19,18 @@ export const dummy = createAsyncThunk(
 	}
 );
 
+export const uploadFile = createAsyncThunk(
+	"main/uploadFile",
+	async ( body ) => {
+		const promise = axios.post(`${config.urls.basePath}uploadFile`, body)
+			.then(response => { alert("File successfully uploaded") })
+			.catch(error => { return "Error" });
+
+		const result = await promise;
+		return result;
+	}
+);
+
 
 /*******************************
 * @desc this function initializes a slice

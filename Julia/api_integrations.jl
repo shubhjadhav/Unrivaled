@@ -13,5 +13,7 @@ end
 
 @post "/resume" single_resume
 
+@post "/uploadFile" upload_file
+
 # start the web server
 serve()

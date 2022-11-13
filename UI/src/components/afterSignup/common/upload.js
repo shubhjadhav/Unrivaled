@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import "./common.css";
 import upload from "../../../images/upload.png";
+import { connect } from "react-redux";
+import { uploadFile } from '../../../store/mainSlice.js';
 class Upload extends Component {
 
     constructor() {
-        super({})
+        super()
         this.inputOpenFileRef = React.createRef()
     }
 
@@ -17,8 +19,18 @@ class Upload extends Component {
      } 
 
     onFileChange = event => {
-        this.setState({ selectedFile: event.target.files[0] });  
-        alert(event.target.files[0].name)
+
+        const file = event.target.files[0];
+
+        this.setState({ selectedFile: file });  
+        const formData = new FormData();
+
+        formData.append(
+            file,
+            file.name
+        )
+        ;
+        this.props.uploadFile(formData);
     };
 
     render() { 
@@ -42,4 +54,8 @@ class Upload extends Component {
     }
 }
  
-export default Upload;
+const mapStateToProps = (state) => { return {};};
+  
+const mapDispatch = { uploadFile };
+ 
+export default connect(mapStateToProps, mapDispatch)(Upload);

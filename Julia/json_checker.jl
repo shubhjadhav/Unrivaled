@@ -13,3 +13,12 @@ function single_resume(req)
     print(jobj)
     return true
 end
+
+function upload_file(req)
+  # deserialize JSON from the request body into an Animal struct
+  # resume = json(req, data)
+  # serialize struct back into JSON automatically (because we used StructTypes)
+  str = String(req.body)
+  print(str)
+  return true
+end

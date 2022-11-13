@@ -9,11 +9,12 @@ class ResumesAndJD extends Component {
 
     onFileSelect = (status) => {
       this.setState({fileSelected: status})
+      this.props.onResumeOrJDSelect(this.props.type, status)
     }
 
     render() { 
         return (
-            <div className='resumes'>
+            <div className='resumes' style={{width: this.props.width}}>
                 <div className='header'>
                     <text>{this.props.type ? "RESUMES" : "JOB DESCRIPTIONS"}</text>
                 </div>

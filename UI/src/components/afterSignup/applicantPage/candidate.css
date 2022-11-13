@@ -1,16 +1,13 @@
 .candidate-wrapper{
-
-    background-color: blue;
     height: 100vh;
     width: 100vw;
-
     display: flex;
 }
 
 .navbar{
     height: 100vh;
     width: 7vw;
-    background-color: yellow;
+    background-color: #D2DAFF;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,26 +29,23 @@ img{
 .main-section{
     height: 100%;
     width: 100%;
-    background-color: green;
     display: flex;
 }
 
 .resumes{
     width: 50%;
     height: 100%;
-    background-color: red;
+    transition: width 2s;
 }
 
 .jd{
     width: 50%;
     height: 100%;
-    background-color: pink;
 }
 
 .header{
     width: 100%;
     height: 10%;
-    background-color: lightblue;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -66,4 +60,33 @@ img{
     text-align: center;
     width: 100%;
     height: 90%;
+}
+
+.analysis-wrapper{
+    width: 10%;
+    height: 50px;
+    background-color: #949498;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
+    justify-content: space-around;
+    align-self: center;
+    align-items: center;
+    margin: 20px;
+    cursor: pointer;
+    transition: width 2s;
+}
+
+img{
+    transition: height 2s;
+}
+
+.analysis-wrapper:hover{
+    background-color: cadetblue;
+}
+
+.analysis-logo{
+    padding-bottom: 0%;
+    margin-bottom: 0%;
 }
