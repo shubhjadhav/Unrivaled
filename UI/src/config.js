@@ -4,12 +4,14 @@
 //----------------------------------------------------------------------------------
 
 const basePath = "http://localhost:9000/"
+const dummyPath = "https://countriesnow.space/api/v0.1/countries/currency"
 
 module.exports = {
   name: "Unrivaled",
   port: 3100,
   secretKey: 'awesome',
   urls: {
-    basePath: basePath
+    basePath: basePath,
+    dummyPath: dummyPath
   }
 }

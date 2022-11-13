@@ -1,9 +1,6 @@
 /****************************************************************
-
-Author: Shubham Jadhav
-Emp ID: 11809
-Description: Configure a store and initialize reducers
-
+# Author: Shubham Jadhav
+# Description: Configure a store and initialize reducers
 ****************************************************************/
 
 import { configureStore } from "@reduxjs/toolkit";

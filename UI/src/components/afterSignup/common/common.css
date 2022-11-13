@@ -9,6 +9,11 @@
     justify-content: space-around;
     align-items: center;
     margin: 20px;
+    cursor: pointer;
+}
+
+.upload-wrapper:hover{
+    background-color: cadetblue;
 }
 
 .upload-logo{
