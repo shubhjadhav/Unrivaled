@@ -1,0 +1,57 @@
+.candidate-wrapper{
+
+    background-color: blue;
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+}
+
+.navbar{
+    height: 100vh;
+    width: 7vw;
+    background-color: yellow;
+}
+
+.logo{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 30%;
+    cursor: pointer;
+}
+
+
+img{
+    height: 35px;
+}
+
+.main-section{
+    height: 100%;
+    width: 100%;
+    background-color: green;
+    display: flex;
+}
+
+.resumes{
+    width: 50%;
+    height: 100%;
+    background-color: red;
+}
+
+.jd{
+    width: 50%;
+    height: 100%;
+    background-color: pink;
+}
+
+.header{
+    width: 100%;
+    height: 10%;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 500;
+}
