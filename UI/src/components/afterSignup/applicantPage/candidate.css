@@ -4,15 +4,6 @@
     display: flex;
 }
 
-.navbar{
-    height: 100vh;
-    width: 7vw;
-    background-color: #D2DAFF;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
 .logo{
     display: flex;
     flex-wrap: wrap;
