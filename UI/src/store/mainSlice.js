@@ -19,6 +19,30 @@ export const dummy = createAsyncThunk(
 	}
 );
 
+export const getAllResumes = createAsyncThunk(
+	"main/getAllResumes",
+	async ( ) => {
+		const promise = axios.get(`${config.urls.basePath}getAllResumes`)
+			.then(response => { return response.data; })
+			.catch(error => { return "Error" });
+
+		const result = await promise;
+		return result;
+	}
+);
+
+export const getAllJDs = createAsyncThunk(
+	"main/getAllJDs",
+	async ( ) => {
+		const promise = axios.get(`${config.urls.basePath}getAllJDs`)
+			.then(response => { return response.data; })
+			.catch(error => { return "Error" });
+
+		const result = await promise;
+		return result;
+	}
+);
+
 export const uploadFile = createAsyncThunk(
 	"main/uploadFile",
 	async ( body, customConfig ) => {
@@ -43,36 +67,28 @@ export const analytics = createAsyncThunk(
 	}
 );
 
-
-/*******************************
-* @desc this function initializes a slice
-*******************************/
 export const slice = createSlice({
-	name: "main", // slice name
-	// initialize state variables
+	name: "main", 
 	initialState: {
-		dummyData : []
+		dummyData : [],
+		resumeList : [],
+		jdList: []
 	},
-	// initialize reducers
-	reducers: {
-		
-	 },
-	/*******************************
-	* @desc reducers to handle async calls
-	*******************************/
+	reducers: { },
 	extraReducers: {
 		[dummy.fulfilled]: (state, action) => {
 			state.dummyData = action.payload
 		},
-		[analytics.fulfilled]: (state, action) => {
+		[analytics.fulfilled]: (state, action) => {},
+		[getAllResumes.fulfilled]: (state, action) => {
+			state.resumeList = action.payload
+		},
+		[getAllJDs.fulfilled]: (state, action) => {
+			state.jdList = action.payload
 		}
 	}
 });
 
-
-/*******************************
-* @desc Exports actions
-*******************************/
 // export const { } = slice.actions;
 
 export default slice.reducer;

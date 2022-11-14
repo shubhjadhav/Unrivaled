@@ -13,7 +13,7 @@ export default function BasicTable(props) {
 
   const handleSelect = (id) => {
     setSelectedFileId( id === selectedFileId ? null : id)
-    props.onFileSelect(id === selectedFileId ? 0 : 1)
+    props.onFileSelect(id === selectedFileId ? null : id)
   }
 
   return (
@@ -37,7 +37,7 @@ export default function BasicTable(props) {
                 onClick={() => handleSelect(row.name) }
               >
                 <TableCell component="th" scope="row"> {row.name}</TableCell>
-                <TableCell align="center">{row.currency}</TableCell>
+                <TableCell align="center">{row.createdOn}</TableCell>
               </TableRow>
             ))}
           </TableBody>

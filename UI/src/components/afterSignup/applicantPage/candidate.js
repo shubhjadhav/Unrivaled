@@ -3,9 +3,8 @@ import "./candidate.css";
 import NavBar from '../common/navBar';
 import ResumesAndJD from './resumesAndJD';
 import { connect } from "react-redux";
-import { dummy, analytics } from '../../../store/mainSlice.js';
+import { dummy, analytics, getAllResumes, getAllJDs } from '../../../store/mainSlice.js';
 import analyze from "../../../images/analyze.png";
-const config = require('../../../config.js')
 
 class Candidate extends Component {
     state = { 
@@ -16,6 +15,8 @@ class Candidate extends Component {
 
     componentDidMount(){
         this.props.dummy();
+        this.props.getAllResumes();
+        this.props.getAllJDs();
     }
 
     onResumeOrJDSelect = (type, status) => {
@@ -30,8 +31,8 @@ class Candidate extends Component {
         console.log("analyze")
 
         const data = {
-            "resume": "Resume 1",
-            "jd": "Job description 1"
+            "resume": this.state.resumeSelected,
+            "jd": this.state.jdSelected
         };
 
         const body = JSON.stringify(data);
@@ -66,17 +67,18 @@ class Candidate extends Component {
                     <ResumesAndJD 
                         type={1} 
                         width={this.state.resumeSelected && this.state.jdSelected ? "47%" : "50%"} 
-                        data={this.props.dummyData}
+                        data={this.props.resumeList}
                         onResumeOrJDSelect={this.onResumeOrJDSelect}
                     />
                     <div 
                         className='analysis-wrapper' 
+                        title="Click to analyze your selected resume"
                         style={this.state.resumeSelected && this.state.jdSelected ? 
                             analyzeStyle[0] : 
                             analyzeStyle[1]} 
                             onClick={this.analyzeFiles} 
                     >
-                        <div className='analysis-logo'>
+                        <div className='analysis-logo' >
                             <img alt='' 
                                 src={analyze} 
                                 style={this.state.resumeSelected && this.state.jdSelected ? 
@@ -88,7 +90,7 @@ class Candidate extends Component {
                     <ResumesAndJD 
                         type={0} 
                         width={this.state.resumeSelected && this.state.jdSelected ? "47%" : "50%"} 
-                        data={this.props.dummyData}
+                        data={this.props.jdList}
                         onResumeOrJDSelect={this.onResumeOrJDSelect}
                     />
                 </div>
@@ -97,9 +99,13 @@ class Candidate extends Component {
     }
 }
 const mapStateToProps = (state) => {
-    return { dummyData: state.main.dummyData };
+    return { 
+        dummyData: state.main.dummyData,
+        resumeList: state.main.resumeList,
+        jdList: state.main.jdList
+    };
 };
   
-const mapDispatch = { dummy, analytics };
+const mapDispatch = { dummy, analytics, getAllResumes, getAllJDs };
  
 export default connect(mapStateToProps, mapDispatch)(Candidate);
