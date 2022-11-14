@@ -121,7 +121,7 @@ end
 
 # This funciton returns all the resumes in the resume collection
 function get_all_resumes()
-    resume_list = Mongoc.find(resumes,options=Mongoc.BSON("""{ "projection":{ "_id":false,"file":false }}"""))
+    resume_list = Mongoc.find(resumes,options=Mongoc.BSON("""{ "projection":{"file":false }}"""))
     a = []
     for res in resume_list
         push!(a, Mongoc.as_dict(res))

@@ -3,7 +3,13 @@ import "./candidate.css";
 import NavBar from '../common/navBar';
 import ResumesAndJD from './resumesAndJD';
 import { connect } from "react-redux";
-import { dummy, analytics, getAllResumes, getAllJDs } from '../../../store/mainSlice.js';
+import { 
+    analytics, 
+    getAllResumes, 
+    getAllJDs, 
+    setResumeSelection, 
+    setJDSelection 
+} from '../../../store/mainSlice.js';
 import analyze from "../../../images/analyze.png";
 
 class Candidate extends Component {
@@ -14,7 +20,6 @@ class Candidate extends Component {
     } 
 
     componentDidMount(){
-        this.props.dummy();
         this.props.getAllResumes();
         this.props.getAllJDs();
     }
@@ -22,8 +27,10 @@ class Candidate extends Component {
     onResumeOrJDSelect = (type, status) => {
         if(type){
             this.setState({resumeSelected: status})
+            this.props.setResumeSelection(status)
         } else {
             this.setState({jdSelected: status})
+            this.props.setJDSelection(status)
         } 
     }
 
@@ -31,6 +38,7 @@ class Candidate extends Component {
         console.log("analyze")
 
         const data = {
+            "username": this.props.username,
             "resume": this.state.resumeSelected,
             "jd": this.state.jdSelected
         };
@@ -100,12 +108,18 @@ class Candidate extends Component {
 }
 const mapStateToProps = (state) => {
     return { 
-        dummyData: state.main.dummyData,
         resumeList: state.main.resumeList,
-        jdList: state.main.jdList
+        jdList: state.main.jdList,
+        username: state.main.username
     };
 };
   
-const mapDispatch = { dummy, analytics, getAllResumes, getAllJDs };
+const mapDispatch = { 
+    analytics, 
+    getAllResumes, 
+    getAllJDs, 
+    setResumeSelection, 
+    setJDSelection 
+};
  
 export default connect(mapStateToProps, mapDispatch)(Candidate);

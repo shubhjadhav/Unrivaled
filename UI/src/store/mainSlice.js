@@ -72,9 +72,19 @@ export const slice = createSlice({
 	initialState: {
 		dummyData : [],
 		resumeList : [],
-		jdList: []
+		jdList: [],
+		username: "Shubham",
+		resumeSelected: null,
+		jdSelected: null
 	},
-	reducers: { },
+	reducers: {
+		setResumeSelection: (state, action) => {
+			state.resumeSelected = action.payload
+		},
+		setJDSelection: (state, action) => {
+			state.jdSelected = action.payload
+		}
+	 },
 	extraReducers: {
 		[dummy.fulfilled]: (state, action) => {
 			state.dummyData = action.payload
@@ -89,6 +99,9 @@ export const slice = createSlice({
 	}
 });
 
-// export const { } = slice.actions;
+export const { 
+	setResumeSelection,
+	setJDSelection
+} = slice.actions;
 
 export default slice.reducer;

@@ -56,7 +56,7 @@ class Upload extends Component {
             <>
                 <div className='upload-wrapper' onClick={this.showOpenFileDlg}>
                     <div className='upload-logo'>
-                        <img src={upload} />
+                        <img alt='' src={upload} />
                     </div>
                 </div>
                 <input 
@@ -67,7 +67,6 @@ class Upload extends Component {
                     style={{display: 'none'}}
                 />
             </>
-
         );
     }
 }
