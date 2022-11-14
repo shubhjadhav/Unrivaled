@@ -24,7 +24,7 @@ end
 
 # Create DB Entry
 # This input is a dictionary from the UI but I am using a sample here.
-cur_dict = Dict("Name" => "Hello", "password"=>"1234","resume_name" => "Hello_resume", "jd" => "receptionist")
+cur_dict = [Dict("Name" => "Hello", "password"=>"1234","resume_name" => "Hello_resume", "jd" => "receptionist"),]
 
 # This funciton takes signup info and adds it to the user_details collection
 function user_detail_upload(dictionary)
@@ -91,6 +91,13 @@ function is_registered_user(dictionary)
     end
     return registered
 end
+
+# This funciton returns all the resumes in the resume collection
+function get_all_resumes()
+    return Mongoc.find(resumes)
+end
+
+
 is_registered_user(Dict("Name"=> "Hello", "password" => "1234"))
 show_db(user_details)
 show_db(resumes)
