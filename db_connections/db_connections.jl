@@ -109,6 +109,13 @@ function is_registered_user(dictionary)
     end
     return registered
 end
+
+# This funciton returns all the resumes in the resume collection
+function get_all_resumes()
+    return Mongoc.find(resumes)
+end
+
+
 is_registered_user(Dict("Name"=> "Hello", "password" => "1234"))
 # show_db(user_details)
 # show_db(resumes)
