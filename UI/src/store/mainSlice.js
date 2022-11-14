@@ -21,9 +21,21 @@ export const dummy = createAsyncThunk(
 
 export const uploadFile = createAsyncThunk(
 	"main/uploadFile",
-	async ( body ) => {
-		const promise = axios.post(`${config.urls.basePath}uploadFile`, body)
+	async ( body, customConfig ) => {
+		const promise = axios.post(`${config.urls.basePath}uploadFile`, body, customConfig)
 			.then(response => { alert("File successfully uploaded") })
+			.catch(error => { return "Error" });
+
+		const result = await promise;
+		return result;
+	}
+);
+
+export const analytics = createAsyncThunk(
+	"main/analytics",
+	async ( body ) => {
+		const promise = axios.post(`${config.urls.basePath}analyze`, body)
+			.then(response => { })
 			.catch(error => { return "Error" });
 
 		const result = await promise;
@@ -51,6 +63,8 @@ export const slice = createSlice({
 	extraReducers: {
 		[dummy.fulfilled]: (state, action) => {
 			state.dummyData = action.payload
+		},
+		[analytics.fulfilled]: (state, action) => {
 		}
 	}
 });
@@ -59,6 +73,6 @@ export const slice = createSlice({
 /*******************************
 * @desc Exports actions
 *******************************/
-export const { } = slice.actions;
+// export const { } = slice.actions;
 
 export default slice.reducer;

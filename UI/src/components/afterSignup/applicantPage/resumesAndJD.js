@@ -16,11 +16,15 @@ class ResumesAndJD extends Component {
         return (
             <div className='resumes' style={{width: this.props.width}}>
                 <div className='header'>
-                    <text>{this.props.type ? "RESUMES" : "JOB DESCRIPTIONS"}</text>
+                    {this.props.type ? "RESUMES" : "JOB DESCRIPTIONS"}
                 </div>
                 <div className='content-list'>
                   <Table data={this.props.data} onFileSelect={this.onFileSelect}/>
-                  { !this.props.data.length || this.state.fileSelected ? null : <Upload />}                  
+                  { 
+                    !this.props.data.length || this.state.fileSelected ? 
+                    null : 
+                    <Upload docType={this.props.type}/>
+                  }                  
                 </div>
             </div>
         );

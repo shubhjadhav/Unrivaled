@@ -23,14 +23,32 @@ class Upload extends Component {
         const file = event.target.files[0];
 
         this.setState({ selectedFile: file });  
-        const formData = new FormData();
 
-        formData.append(
-            file,
-            file.name
-        )
-        ;
-        this.props.uploadFile(formData);
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onloadend = (e) => {
+            const data = {
+                "name": file.name,
+                "type": file.type,
+                "docType": this.props.docType ? "resume" : "jd",
+                "file": e.target.result,
+                "createdOn": new Date(file.lastModifiedDate).toJSON().slice(0, 10)
+            };
+
+            const body = JSON.stringify(data);
+            const customConfig = {
+                headers: {
+                'Content-Type': 'application/json'
+                }
+            };
+    
+            this.props.uploadFile(body, customConfig)
+
+        }
+
+
+        console.log("upload")
+  
     };
 
     render() { 

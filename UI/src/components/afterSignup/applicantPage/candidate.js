@@ -3,8 +3,9 @@ import "./candidate.css";
 import NavBar from '../common/navBar';
 import ResumesAndJD from './resumesAndJD';
 import { connect } from "react-redux";
-import { dummy } from '../../../store/mainSlice.js';
+import { dummy, analytics } from '../../../store/mainSlice.js';
 import analyze from "../../../images/analyze.png";
+const config = require('../../../config.js')
 
 class Candidate extends Component {
     state = { 
@@ -15,13 +16,6 @@ class Candidate extends Component {
 
     componentDidMount(){
         this.props.dummy();
-        setTimeout(
-            function() {
-                this.setState({ flag: true });
-            }
-            .bind(this),
-            3000
-        );
     }
 
     onResumeOrJDSelect = (type, status) => {
@@ -29,8 +23,25 @@ class Candidate extends Component {
             this.setState({resumeSelected: status})
         } else {
             this.setState({jdSelected: status})
-        }
-        
+        } 
+    }
+
+    analyzeFiles = () => {
+        console.log("analyze")
+
+        const data = {
+            "resume": "Resume 1",
+            "jd": "Job description 1"
+        };
+
+        const body = JSON.stringify(data);
+        const customConfig = {
+            headers: {
+            'Content-Type': 'application/json'
+            }
+        };
+
+        this.props.analytics(body, customConfig)
     }
 
     render() { 
@@ -60,10 +71,18 @@ class Candidate extends Component {
                     />
                     <div 
                         className='analysis-wrapper' 
-                        style={this.state.resumeSelected && this.state.jdSelected ? analyzeStyle[0] : analyzeStyle[1]} onClick={null} 
+                        style={this.state.resumeSelected && this.state.jdSelected ? 
+                            analyzeStyle[0] : 
+                            analyzeStyle[1]} 
+                            onClick={this.analyzeFiles} 
                     >
                         <div className='analysis-logo'>
-                            <img src={analyze} style={this.state.resumeSelected && this.state.jdSelected ? analyzeStyle[2] : analyzeStyle[3]}/>
+                            <img alt='' 
+                                src={analyze} 
+                                style={this.state.resumeSelected && this.state.jdSelected ? 
+                                    analyzeStyle[2] : 
+                                    analyzeStyle[3]}
+                            />
                         </div>
                     </div>
                     <ResumesAndJD 
@@ -81,6 +100,6 @@ const mapStateToProps = (state) => {
     return { dummyData: state.main.dummyData };
 };
   
-const mapDispatch = { dummy };
+const mapDispatch = { dummy, analytics };
  
 export default connect(mapStateToProps, mapDispatch)(Candidate);

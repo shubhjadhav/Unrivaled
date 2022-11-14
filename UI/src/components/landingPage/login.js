@@ -13,15 +13,15 @@ class login extends Component {
                 <div className='passwordBox'></div> 
                 
                 <div className='signInButtom'>
-                    <text>Sign 
+                    <Text>Sign 
                         in
-                    </text>
+                    </Text>
                 </div> 
 
                 <div className='createAccButtom'>
-                    <text>Create 
+                    <Text>Create 
                         an Account
-                    </text>
+                    </Text>
                 </div> 
 
                 

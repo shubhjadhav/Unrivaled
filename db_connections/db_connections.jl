@@ -1,5 +1,5 @@
-import Mongoc
-import JSON
+using Mongoc
+using JSON
 # connecting to the server
 client = Mongoc.Client("mongodb://localhost:27017")
 
@@ -24,7 +24,25 @@ end
 
 # Create DB Entry
 # This input is a dictionary from the UI but I am using a sample here.
-cur_dict = Dict("Name" => "Hello", "password"=>"1234","resume_name" => "Hello_resume", "jd" => "receptionist")
+cur_dict = Dict(
+    "Name" => "Hello", 
+    "password"=>"1234",
+    "resume_name" => "Hello_resume", 
+    "jd" => "receptionist"
+)
+
+
+# This funciton upload files to database
+function file_upload(dictionary)
+    vector = [Mongoc.BSON(dictionary)]
+    if dictionary["docType"] === "resume"
+        append!(resumes, vector)
+    else
+        append!(job_descriptions, vector)
+    end
+
+    println("The document is successfully uploaded.")
+end
 
 # This funciton takes signup info and adds it to the user_details collection
 function user_detail_upload(dictionary)
@@ -92,7 +110,7 @@ function is_registered_user(dictionary)
     return registered
 end
 is_registered_user(Dict("Name"=> "Hello", "password" => "1234"))
-show_db(user_details)
-show_db(resumes)
-show_db(job_descriptions)
-show_db(scores)
+# show_db(user_details)
+# show_db(resumes)
+# show_db(job_descriptions)
+# show_db(scores)

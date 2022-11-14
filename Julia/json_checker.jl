@@ -1,4 +1,5 @@
 using JSON
+
 include("../db_connections/db_connections.jl")
 
 function subtract(req, a::Float64, b::Float64)
@@ -16,17 +17,26 @@ function single_resume(req)
 end
 
 function upload_file(req)
-  # deserialize JSON from the request body into an Animal struct
-  # resume = json(req, data)
-  # serialize struct back into JSON automatically (because we used StructTypes)
   str = String(req.body)
-  print(str)
+  file_upload(JSON.parse(str))
   return true
+end
+
+function get_all_resumes_from_db()
+  return get_all_resumes()
 end
 
 
 function save_user_details(req)
   str = String(req.body)
-  print(str)
+  user_details = JSON.parse(str)
+  user_detail_upload(user_details)
+  return true
+end
+
+function analytics(req)
+  str = String(req.body)
+  data = JSON.parse(str)
+  println(data)
   return true
 end

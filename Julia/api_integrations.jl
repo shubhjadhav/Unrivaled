@@ -1,4 +1,5 @@
 using Oxygen
+
 include("json_checker.jl")
 
 @get "/greet" function()
@@ -16,6 +17,10 @@ end
 @post "/uploadFile" upload_file
 
 @post "/saveUserDeatils" save_user_details
+
+@post "/analyze" analytics
+
+@get "/getAllResumes" get_all_resumes_from_db
 
 # start the web server
 serve()
