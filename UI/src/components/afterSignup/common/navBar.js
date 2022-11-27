@@ -4,6 +4,8 @@ import profile from "../../../images/man.png";
 import settings from "../../../images/configuration.png";
 import notifications from "../../../images/notification.png";
 import logout from "../../../images/shutdown.png";
+import { connect } from "react-redux";
+import "./common.css";
 
 class NavBar extends Component {
     state = {  } 
@@ -11,23 +13,36 @@ class NavBar extends Component {
         return (
             <div className='navbar'>
                     <div className='logo'>
-                        <img src={profile} />
+                        <img alt='' src={profile} />
+                    </div>
+                    <div className='username'>
+                        {`Hi ${this.props.username}`}
                     </div>
                     <div className='logo'>
-                        <img src={documentLogo} />
+                        <img alt='' src={documentLogo} />
                     </div>
                     <div className='logo'>
-                        <img src={notifications} />
+                        <img alt='' src={notifications} />
                     </div>
                     <div className='logo settings'>
-                        <img src={settings} />
+                        <img alt='' src={settings} />
                     </div>
                     <div className='logo settings'>
-                        <img src={logout} />
+                        <img alt='' src={logout} />
                     </div>
                 </div>
         );
     }
 }
+
+const mapStateToProps = (state) => {
+    return { 
+        username: state.main.username,
+        resumeList: state.main.resumeList,
+        jdList: state.main.jdList
+    };
+};
+  
+const mapDispatch = {};
  
-export default NavBar;
+export default connect(mapStateToProps, mapDispatch)(NavBar);

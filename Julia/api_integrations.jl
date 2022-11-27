@@ -1,17 +1,15 @@
 using Oxygen
 include("json_checker.jl")
 
-@get "/greet" function()
-    "hello world!"
-end
+@post "/uploadFile" upload_file
 
-@get "/saluer" () -> begin
-    "Bonjour le monde!"
-end
+@post "/saveUserDeatils" save_user_details
 
-@get "/subtract/{a}/{b}" subtract
+@post "/analyze" analytics
 
-@post "/resume" single_resume
+@get "/getAllResumes" get_all_resumes_from_db
+
+@get "/getAllJDs" get_all_jds_from_db
 
 # start the web server
 serve()

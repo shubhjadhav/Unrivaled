@@ -7,66 +7,14 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
-const temp = [
-  {
-    "id": 1,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 2,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 3,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 4,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 5,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 6,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 7,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 8,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 9,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  },
-  {
-    "id": 10,
-    "name":"Shubham.pdf",
-    "dateCreated": new Date().toJSON().slice(0, 10)
-  }
-]
-
-const handleCellClick = (e) => {
-  console.log(e.target.textContent);
-}
-
-export default function BasicTable() {
+export default function BasicTable(props) {
 
   const [selectedFileId, setSelectedFileId] = useState(0);
+
+  const handleSelect = (id) => {
+    setSelectedFileId( id === selectedFileId ? null : id)
+    props.onFileSelect(id === selectedFileId ? null : id)
+  }
 
   return (
     <div className='table-wrapper'>
@@ -79,17 +27,17 @@ export default function BasicTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {temp.map((row) => (
+            {props.data.map((row) => (
               <TableRow
                 key={row.name}
                 sx={{ 
                   '&:last-child td, &:last-child th': { border: 0 }, 
-                  backgroundColor : selectedFileId === row.id ? "lightblue" : "white"
+                  backgroundColor : selectedFileId === row.name ? "lightblue" : "white"
                 }}
-                onClick={() => setSelectedFileId( row.id === selectedFileId ? null : row.id)}
+                onClick={() => handleSelect(row.name) }
               >
                 <TableCell component="th" scope="row"> {row.name}</TableCell>
-                <TableCell align="center">{row.dateCreated}</TableCell>
+                <TableCell align="center">{row.createdOn}</TableCell>
               </TableRow>
             ))}
           </TableBody>

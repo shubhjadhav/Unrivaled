@@ -1,7 +1,35 @@
+.navbar{
+    height: 100vh;
+    width: 7vw;
+    background-color: #D2DAFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    padding: 30% 0%;
+    cursor: pointer;
+}
+
+img{
+    height: 35px;
+}
+
+.username{
+    font-size: 12px;
+    padding: 0%;
+    margin-bottom: 50%;
+    margin-top: -10%;
+}
+
 .upload-wrapper{
-    width: 70%;
-    height: 50px;
-    background-color: aliceblue;
+    width: 50%;
+    height: 60px;
+    background-color: #949498;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -9,10 +37,15 @@
     justify-content: space-around;
     align-items: center;
     margin: 20px;
+    cursor: pointer;
+}
+
+.upload-wrapper:hover{
+    background-color: cadetblue;
 }
 
 .upload-logo{
-    padding-bottom: 0%;
+    padding: 0%;
     margin-bottom: 0%;
 }
 
