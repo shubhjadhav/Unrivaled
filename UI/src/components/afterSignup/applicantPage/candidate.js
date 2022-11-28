@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import "./candidate.css";
-import NavBar from '../common/navBar';
 import ResumesAndJD from './resumesAndJD';
 import { connect } from "react-redux";
 import { 
@@ -8,7 +7,9 @@ import {
     getAllResumes, 
     getAllJDs, 
     setResumeSelection, 
-    setJDSelection 
+    setJDSelection,
+    setAnalyticsView,
+    setLoading
 } from '../../../store/mainSlice.js';
 import analyze from "../../../images/analyze.png";
 
@@ -35,8 +36,6 @@ class Candidate extends Component {
     }
 
     analyzeFiles = () => {
-        console.log("analyze")
-
         const data = {
             "username": this.props.username,
             "resume": this.state.resumeSelected,
@@ -44,13 +43,18 @@ class Candidate extends Component {
         };
 
         const body = JSON.stringify(data);
+
         const customConfig = {
             headers: {
             'Content-Type': 'application/json'
             }
         };
 
-        this.props.analytics(body, customConfig)
+        this.props.setLoading(true)
+
+        setTimeout(() => {
+            this.props.analytics(body, customConfig)
+        }, 3000);
     }
 
     render() { 
@@ -69,39 +73,36 @@ class Candidate extends Component {
         ]
 
         return (
-            <div className='candidate-wrapper'>
-                <NavBar />
-                <div className='main-section'>
-                    <ResumesAndJD 
-                        type={1} 
-                        width={this.state.resumeSelected && this.state.jdSelected ? "47%" : "50%"} 
-                        data={this.props.resumeList}
-                        onResumeOrJDSelect={this.onResumeOrJDSelect}
-                    />
-                    <div 
-                        className='analysis-wrapper' 
-                        title="Click to analyze your selected resume"
-                        style={this.state.resumeSelected && this.state.jdSelected ? 
-                            analyzeStyle[0] : 
-                            analyzeStyle[1]} 
-                            onClick={this.analyzeFiles} 
-                    >
-                        <div className='analysis-logo' >
-                            <img alt='' 
-                                src={analyze} 
-                                style={this.state.resumeSelected && this.state.jdSelected ? 
-                                    analyzeStyle[2] : 
-                                    analyzeStyle[3]}
-                            />
-                        </div>
+            <div className='main-section'>
+                <ResumesAndJD 
+                    type={1} 
+                    width={this.state.resumeSelected && this.state.jdSelected ? "47%" : "50%"} 
+                    data={this.props.resumeList}
+                    onResumeOrJDSelect={this.onResumeOrJDSelect}
+                />
+                <div 
+                    className='analysis-wrapper' 
+                    title="Click to analyze your selected resume"
+                    style={this.state.resumeSelected && this.state.jdSelected ? 
+                        analyzeStyle[0] : 
+                        analyzeStyle[1]} 
+                        onClick={this.analyzeFiles} 
+                >
+                    <div className='analysis-logo' >
+                        <img alt='' 
+                            src={analyze} 
+                            style={this.state.resumeSelected && this.state.jdSelected ? 
+                                analyzeStyle[2] : 
+                                analyzeStyle[3]}
+                        />
                     </div>
-                    <ResumesAndJD 
-                        type={0} 
-                        width={this.state.resumeSelected && this.state.jdSelected ? "47%" : "50%"} 
-                        data={this.props.jdList}
-                        onResumeOrJDSelect={this.onResumeOrJDSelect}
-                    />
                 </div>
+                <ResumesAndJD 
+                    type={0} 
+                    width={this.state.resumeSelected && this.state.jdSelected ? "47%" : "50%"} 
+                    data={this.props.jdList}
+                    onResumeOrJDSelect={this.onResumeOrJDSelect}
+                />
             </div>
         );
     }
@@ -119,7 +120,9 @@ const mapDispatch = {
     getAllResumes, 
     getAllJDs, 
     setResumeSelection, 
-    setJDSelection 
+    setJDSelection,
+    setAnalyticsView,
+    setLoading
 };
  
 export default connect(mapStateToProps, mapDispatch)(Candidate);
