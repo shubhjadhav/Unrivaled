@@ -27,9 +27,12 @@
  * UI color scheme: Blue
  
  ### Project Flow
- ----
   1. Upload Resume
-     * The user 
+     * The user uploads the resume that he/she wants to compare it with the job descreption
+     * In this version, we are working with pdf file formats and the user is able to upload one resume for one score output
+     * In future versions, we will add docx file and also the user will be able to upload multiple resumes to compare with the job descreption and choose the one that matches 
+       the most
+       
   3. Job Description Upload
   4. Store data in Database
   5. Access, process, and store results in Database
