@@ -37,5 +37,4 @@
  * 1. Create a dictionary of both jd and resume and then create vectors of both resume and jd
  * 2. Finding keywords in both jd and resume after removing stop words and unnecessary things
  * 3. Finding similarities between the two vectors
- * 4. storing results in db
- * 5. results are displayed from db
+ * 4. Create score based on the similarity
