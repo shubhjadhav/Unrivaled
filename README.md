@@ -27,8 +27,9 @@
  * UI color scheme: Blue
  
  ### Project Flow
+ ----
   1. Upload Resume
-  * The user 
+     * The user 
   3. Job Description Upload
   4. Store data in Database
   5. Access, process, and store results in Database
