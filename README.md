@@ -26,7 +26,7 @@
  * Font: San-serif
  * UI color scheme: Blue
  
- ### How
- * 1.
-   * 2. 
-     * 3.
+ ### Project Flow
+ *
+ ### How It Works
+ *
