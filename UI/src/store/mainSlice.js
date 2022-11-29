@@ -19,6 +19,18 @@ export const dummy = createAsyncThunk(
 	}
 );
 
+export const login = createAsyncThunk(
+	"main/login",
+	async ( body, customConfig ) => {
+		const promise = axios.post(`${config.urls.basePath}login`, body, customConfig)
+			.then(response => { return response.data })
+			.catch(error => { return "Error" });
+
+		const result = await promise;
+		return result;
+	}
+);
+
 export const getAllResumes = createAsyncThunk(
 	"main/getAllResumes",
 	async ( ) => {
@@ -59,7 +71,7 @@ export const analytics = createAsyncThunk(
 	"main/analytics",
 	async ( body ) => {
 		const promise = axios.post(`${config.urls.basePath}analyze`, body)
-			.then(response => { })
+			.then(response => { return response.data })
 			.catch(error => { return "Error" });
 
 		const result = await promise;
@@ -73,11 +85,13 @@ export const slice = createSlice({
 		dummyData : [],
 		resumeList : [],
 		jdList: [],
-		username: "shubham",
+		username: "",
+		login: false,
 		resumeSelected: null,
 		jdSelected: null,
 		analyticsView: false,
-		loader: false
+		loader: false,
+		analyticsResult: {}
 	},
 	reducers: {
 		setResumeSelection: (state, action) => {
@@ -92,12 +106,18 @@ export const slice = createSlice({
 		setLoading: (state, action) => {
 			state.loader = action.payload
 		},
+		logout: (state, action) => {
+			state.login = false
+			state.username = ""
+		},
 	 },
 	extraReducers: {
 		[dummy.fulfilled]: (state, action) => {
 			state.dummyData = action.payload
 		},
 		[analytics.fulfilled]: (state, action) => {
+			state.analyticsResult = action.payload
+
 			state.analyticsView = true
 			state.loader = false
 		},
@@ -108,6 +128,18 @@ export const slice = createSlice({
 		[getAllJDs.fulfilled]: (state, action) => {
 			state.jdList = action.payload
 			state.loader = false
+		},
+		[login.fulfilled]: (state, action) => {
+
+			state.login = action.payload.registered
+			state.loader = false
+
+			if (!action.payload.registered){
+				alert("You are not registered user!")
+				
+			} else {
+				state.username = action.payload.username
+			}
 		}
 	}
 });
@@ -116,7 +148,8 @@ export const {
 	setResumeSelection,
 	setJDSelection,
 	setAnalyticsView,
-	setLoading
+	setLoading,
+	logout
 } = slice.actions;
 
 export default slice.reducer;

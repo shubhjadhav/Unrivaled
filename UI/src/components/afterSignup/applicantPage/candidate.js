@@ -52,10 +52,7 @@ class Candidate extends Component {
         };
 
         this.props.setLoading(true)
-
-        setTimeout(() => {
-            this.props.analytics(body, customConfig)
-        }, 3000);
+        this.props.analytics(body, customConfig)
     }
 
     render() { 

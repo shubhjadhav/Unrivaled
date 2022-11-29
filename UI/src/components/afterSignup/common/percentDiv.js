@@ -15,7 +15,7 @@ class PercentDiv extends Component {
                     <CircularProgressbar 
                         value={this.props.value} 
                         maxValue={1} 
-                        text={`${this.props.value * 100}%`} 
+                        text={`${Math.round(this.props.value * 1000)/10}%`} 
                     />
                 </div>
             </div>

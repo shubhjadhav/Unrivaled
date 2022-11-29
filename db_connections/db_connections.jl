@@ -110,12 +110,18 @@ function is_registered_user(dictionary)
             registered = true
         end
     end
+
+    result = Dict() 
+    result["registered"] = registered
+    result["username"] = dictionary["Name"]
+
     if registered
         println("Yes, the user is registered.")
     else
         println("Please register to proceed.")
     end
-    return registered
+
+    return result
 end
 
 

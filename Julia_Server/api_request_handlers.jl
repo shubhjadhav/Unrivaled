@@ -1,11 +1,18 @@
 using JSON
 include("../DB_Connections/db_connections.jl")
+include("../Julia_NLP_Engine/nlp_pipeline.jl")
 
 function upload_file(req)
   str = String(req.body)
   file_upload(JSON.parse(str))
   return true
 end
+
+function login(req)
+  str = String(req.body)
+  return is_registered_user(JSON.parse(str))
+end
+
 
 function get_all_resumes_from_db()
   return get_all_resumes()
@@ -29,11 +36,7 @@ function analytics(req)
   resume = get_one_resume(data)
   jd = get_one_jd(data)
 
-  println(data)
-  println(resume[1]["name"])
-  println(jd[1]["name"])
-
-  results = jahnavis_function(resume[1]["file"], jd[1]["file"])
+  results =  process_file(resume[1]["file"], jd[1]["file"])
 
   return results
 end
