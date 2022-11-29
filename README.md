@@ -27,6 +27,15 @@
  * UI color scheme: Blue
  
  ### Project Flow
- *
+ * 1. Resume Upload
+ * 2. Job Description Upload
+ * 3. Store data in Database
+ * 4. Access, process, and store results in Database
+ * 5. Display results
+
  ### How It Works
- *
+ * 1. Create a dictionary of both jd and resume and then create vectors of both resume and jd
+ * 2. Finding keywords in both jd and resume after removing stop words and unnecessary things
+ * 3. Finding similarities between the two vectors
+ * 4. storing results in db
+ * 5. results are displayed from db
