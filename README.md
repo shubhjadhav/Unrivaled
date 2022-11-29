@@ -33,7 +33,7 @@
      * In future versions, we will add docx file as a file upload option and also the user will be able to upload multiple resumes to compare with the job descreption and 
        choose the one that matches the most
        
-  2.Upload Job Descreption
+  2. Upload Job Descreption
      * The user uploads the job descreption that he/she wants to mathc with the resume uploaded
      * In this version, we are accepting pdf file formats
      * In future versions, we will add docx file as a file upload option
