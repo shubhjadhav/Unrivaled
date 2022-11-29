@@ -58,13 +58,14 @@
      * Then we create the vectors (Here I need Jahnavi's help to make it technical)
    
   2. Finding keywords in both jd and resume after removing stop words and unnecessary things
-     * We used languages to find keywords in our resume and job description
+     * We used "languages" library to find keywords in our resume and job description
      
   3. Finding similarities between the two vectors
-     * We used GloVe to create the vectors for both the resume and job description. GloVe is an unsupervised learning algorithm for obtaining vector representations for words
+     * We used "GloVe" to create the vectors for both the resume and job description. GloVe is an unsupervised learning algorithm for obtaining vector representations for 
+       words
      
   4. Create score based on the similarity
-     * We used cosine similarity and correlation and then create the score based on that. Cosine similarity measures the similarity between two vectors of an inner product 
-       space. It is measured by the cosine of the angle between two vectors and determines whether two vectors are pointing in roughly the same direction. It is often used to 
-       measure document similarity in text analysis
+     * We used "cosine similarity and correlation" between the two vectors and then create the score based on that. Cosine similarity measures the similarity between two 
+       vectors of an inner product space. It is measured by the cosine of the angle between two vectors and determines whether two vectors are pointing in roughly the same 
+       direction. It is often used to measure document similarity in text analysis
      
