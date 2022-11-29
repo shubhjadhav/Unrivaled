@@ -1,5 +1,5 @@
 using JSON
-include("../DB_Connections/DB_Connections.jl")
+include("../DB_Connections/db_connections.jl")
 
 function upload_file(req)
   str = String(req.body)
