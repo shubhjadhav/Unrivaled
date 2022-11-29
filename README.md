@@ -64,7 +64,7 @@
      * We used GloVe to create the vectors for both the resume and job description. GloVe is an unsupervised learning algorithm for obtaining vector representations for words
      
   4. Create score based on the similarity
-     * We used cosine similarit and correlation and then create the score based on that. Cosine similarity measures the similarity between two vectors of an inner product  
+     * We used cosine similarity and correlation and then create the score based on that. Cosine similarity measures the similarity between two vectors of an inner product 
        space. It is measured by the cosine of the angle between two vectors and determines whether two vectors are pointing in roughly the same direction. It is often used to 
        measure document similarity in text analysis
      
