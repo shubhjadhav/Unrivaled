@@ -129,13 +129,22 @@ function get_all_resumes()
     return a
 end
 
+# This funciton returns all the jds in the job_description collection
+function get_all_jds()
+    jd_list = Mongoc.find(job_descriptions,options=Mongoc.BSON("""{ "projection":{"file":false }}"""))
+    a = []
+    for jd in jd_list
+        push!(a, Mongoc.as_dict(jd))
+    end
+    return a
+end
 
 # This function returns one resume using username and resume name 
 # as a key to search in the resume collection
 function get_one_resume(dictionary)
     username = dictionary["username"]
     resume_name = dictionary["resume"]
-    cur_file = Mongoc.find(resumes, Mongoc.BSON("""{"Name": "$username", "resume": "$resume_name"}"""))
+    cur_file = Mongoc.find(resumes, Mongoc.BSON("""{"username": "$username", "name": "$resume_name"}"""))
     final_resume = []
     for each in cur_file
         push!(final_resume, each)
@@ -148,7 +157,7 @@ end
 # as a key to search in the resume collection
 function get_user_resume(dictionary)
     username = dictionary["username"]
-    cur_file = Mongoc.find(resumes, Mongoc.BSON("""{"Name": "$username"}"""))
+    cur_file = Mongoc.find(resumes, Mongoc.BSON("""{"username": "$username"}"""))
     final_resumes = []
     for each in cur_file
         push!(final_resumes, each)
@@ -162,7 +171,7 @@ end
 function get_one_jd(dictionary)
     username = dictionary["username"]
     jd_name = dictionary["jd"]
-    cur_file = Mongoc.find(job_descriptions, Mongoc.BSON("""{"Name": "$username", "jd": "$jd_name"}"""))
+    cur_file = Mongoc.find(job_descriptions, Mongoc.BSON("""{"username": "$username", "name": "$jd_name"}"""))
     final_jd = []
     for each in cur_file
         push!(final_jd, each)
@@ -175,7 +184,7 @@ end
 # jd name as a key to search in the job_descriptions collection
 function get_user_jd(dictionary)
     username = dictionary["username"]
-    cur_file = Mongoc.find(job_descriptions, Mongoc.BSON("""{"Name": "$username"}"""))
+    cur_file = Mongoc.find(job_descriptions, Mongoc.BSON("""{"username": "$username"}"""))
     final_jd = []
     for each in cur_file
         push!(final_jd, each)

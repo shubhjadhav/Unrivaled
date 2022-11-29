@@ -21,6 +21,7 @@ class Candidate extends Component {
     } 
 
     componentDidMount(){
+        this.props.setLoading(true)
         this.props.getAllResumes();
         this.props.getAllJDs();
     }

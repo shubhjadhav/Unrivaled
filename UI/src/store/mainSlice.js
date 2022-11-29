@@ -47,7 +47,7 @@ export const uploadFile = createAsyncThunk(
 	"main/uploadFile",
 	async ( body, customConfig ) => {
 		const promise = axios.post(`${config.urls.basePath}uploadFile`, body, customConfig)
-			.then(response => { alert("File successfully uploaded") })
+			.then(response => {  })
 			.catch(error => { return "Error" });
 
 		const result = await promise;
@@ -73,7 +73,7 @@ export const slice = createSlice({
 		dummyData : [],
 		resumeList : [],
 		jdList: [],
-		username: "Shubham",
+		username: "shubham",
 		resumeSelected: null,
 		jdSelected: null,
 		analyticsView: false,
@@ -103,9 +103,11 @@ export const slice = createSlice({
 		},
 		[getAllResumes.fulfilled]: (state, action) => {
 			state.resumeList = action.payload
+			state.loader = false
 		},
 		[getAllJDs.fulfilled]: (state, action) => {
 			state.jdList = action.payload
+			state.loader = false
 		}
 	}
 });

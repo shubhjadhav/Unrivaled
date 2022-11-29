@@ -20,11 +20,7 @@ class ResumesAndJD extends Component {
                 </div>
                 <div className='content-list'>
                   <Table data={this.props.data} onFileSelect={this.onFileSelect}/>
-                  { 
-                    !this.props.data.length || this.state.fileSelected ? 
-                    null : 
-                    <Upload docType={this.props.type}/>
-                  }                  
+                  { this.state.fileSelected ? null : <Upload docType={this.props.type}/> }                  
                 </div>
             </div>
         );

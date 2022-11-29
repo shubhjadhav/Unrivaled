@@ -1,16 +1,39 @@
-using Oxygen
+using JSON
+include("../DB_Connections/db_connections.jl")
 
-include("api_methods.jl")
+function upload_file(req)
+  str = String(req.body)
+  file_upload(JSON.parse(str))
+  return true
+end
 
-@post "/uploadFile" upload_file
+function get_all_resumes_from_db()
+  return get_all_resumes()
+end
 
-@post "/saveUserDeatils" save_user_details
+function get_all_jds_from_db()
+  return get_all_jds()
+end
 
-@post "/analyze" analytics
+function save_user_details(req)
+  str = String(req.body)
+  user_details = JSON.parse(str)
+  user_detail_upload(user_details)
+  return true
+end
 
-@get "/getAllResumes" get_all_resumes_from_db
+function analytics(req)
+  str = String(req.body)
+  data = JSON.parse(str)
 
-@get "/getAllJDs" get_all_jds_from_db
+  resume = get_one_resume(data)
+  jd = get_one_jd(data)
 
-# start the web server
-serve()
+  println(data)
+  println(resume[1]["name"])
+  println(jd[1]["name"])
+
+  results = jahnavis_function(resume[1]["file"], jd[1]["file"])
+
+  return results
+end
