@@ -75,7 +75,9 @@ export const slice = createSlice({
 		jdList: [],
 		username: "Shubham",
 		resumeSelected: null,
-		jdSelected: null
+		jdSelected: null,
+		analyticsView: false,
+		loader: false
 	},
 	reducers: {
 		setResumeSelection: (state, action) => {
@@ -83,13 +85,22 @@ export const slice = createSlice({
 		},
 		setJDSelection: (state, action) => {
 			state.jdSelected = action.payload
-		}
+		},
+		setAnalyticsView: (state, action) => {
+			state.analyticsView = action.payload
+		},
+		setLoading: (state, action) => {
+			state.loader = action.payload
+		},
 	 },
 	extraReducers: {
 		[dummy.fulfilled]: (state, action) => {
 			state.dummyData = action.payload
 		},
-		[analytics.fulfilled]: (state, action) => {},
+		[analytics.fulfilled]: (state, action) => {
+			state.analyticsView = true
+			state.loader = false
+		},
 		[getAllResumes.fulfilled]: (state, action) => {
 			state.resumeList = action.payload
 		},
@@ -101,7 +112,9 @@ export const slice = createSlice({
 
 export const { 
 	setResumeSelection,
-	setJDSelection
+	setJDSelection,
+	setAnalyticsView,
+	setLoading
 } = slice.actions;
 
 export default slice.reducer;

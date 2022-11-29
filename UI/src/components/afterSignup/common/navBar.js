@@ -5,10 +5,16 @@ import settings from "../../../images/configuration.png";
 import notifications from "../../../images/notification.png";
 import logout from "../../../images/shutdown.png";
 import { connect } from "react-redux";
+import { setAnalyticsView } from '../../../store/mainSlice.js';
 import "./common.css";
 
 class NavBar extends Component {
     state = {  } 
+
+    setCandidateView = () => {
+        this.props.setAnalyticsView(false)
+    }
+
     render() { 
         return (
             <div className='navbar'>
@@ -18,7 +24,7 @@ class NavBar extends Component {
                     <div className='username'>
                         {`Hi ${this.props.username}`}
                     </div>
-                    <div className='logo'>
+                    <div className='logo' onClick={this.setCandidateView}>
                         <img alt='' src={documentLogo} />
                     </div>
                     <div className='logo'>
@@ -27,7 +33,7 @@ class NavBar extends Component {
                     <div className='logo settings'>
                         <img alt='' src={settings} />
                     </div>
-                    <div className='logo settings'>
+                    <div className='logo settings' >
                         <img alt='' src={logout} />
                     </div>
                 </div>
@@ -43,6 +49,6 @@ const mapStateToProps = (state) => {
     };
 };
   
-const mapDispatch = {};
+const mapDispatch = { setAnalyticsView };
  
 export default connect(mapStateToProps, mapDispatch)(NavBar);

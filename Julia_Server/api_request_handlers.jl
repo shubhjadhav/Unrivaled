@@ -1,5 +1,6 @@
 using Oxygen
-include("json_checker.jl")
+
+include("api_methods.jl")
 
 @post "/uploadFile" upload_file
 

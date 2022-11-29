@@ -1,0 +1,36 @@
+.analytics-wrapper{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.analytics-row-1{
+    width: 98%;
+    height: 50%;
+    display: flex;
+    margin: 1%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.analytics-row-2{
+    width: 98%;
+    height: 50%;
+    display: flex;
+    margin: 1%;
+    justify-content: space-evenly;
+}
+
+.wc-div{
+    width: 30%;
+    display: block;
+    margin-top: 4%;
+    margin-left: -1%;
+    padding: 1%;
+}
+
+.cpb-div{
+    width: 24%;
+    height: 80%;
+}
