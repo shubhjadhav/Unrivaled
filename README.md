@@ -39,7 +39,7 @@
      * In future versions, we will add docx file as a file upload option
      
   3. Store data in Database
-     * After the file is uploaded, it will be converted to base64 format, so that it is suitable to be stored in the data base, and is stored in our respective collection.
+     * After the file is uploaded, it will be converted to base64 format, so that it is suitable to be stored in the database, and is stored in our respective collection.
      * Resumes will be stored in resume collection and job descreptions in the job descreption collection
 
   4. Files retrieved, processed, and scores are stored in the database
