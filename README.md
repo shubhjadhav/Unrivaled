@@ -52,6 +52,17 @@
 
  ### How It Works
   1. Create a dictionary of both jd and resume and then create vectors of both resume and jd
+     * We will retrive the base64 format of both the resume and the job description from our respective collection
+     * We will convert them to a string that they will be suitalbe to work with
+     * Store the frequency of each word after removing stop words that are not necessary
+     * Then we create the vectors (Here I need Jahnavi's help to make it technical)
+   
   2. Finding keywords in both jd and resume after removing stop words and unnecessary things
+     * (Here I need Jahnavi's help to make it technical)
+     
   3. Finding similarities between the two vectors
+     * (Here I need Jahnavi's help to make it technical)
+     
   4. Create score based on the similarity
+     * (Here I need Jahnavi's help to make it technical)
+     
