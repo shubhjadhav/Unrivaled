@@ -34,7 +34,7 @@
   5. Display results
 
  ### How It Works
- * 1. Create a dictionary of both jd and resume and then create vectors of both resume and jd
- * 2. Finding keywords in both jd and resume after removing stop words and unnecessary things
- * 3. Finding similarities between the two vectors
- * 4. Create score based on the similarity
+  1. Create a dictionary of both jd and resume and then create vectors of both resume and jd
+  2. Finding keywords in both jd and resume after removing stop words and unnecessary things
+  3. Finding similarities between the two vectors
+  4. Create score based on the similarity
