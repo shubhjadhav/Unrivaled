@@ -8,6 +8,7 @@
   * [DB Connection](#db-connection)
   * [UI](#ui)
 - [Architecture Diagram](#architecture-diagram)
+- [NLP Process Flow](#nlp-process-flow)
 - [Software Requirements](#software-requirements)
 - [Setup and Installation](#setup-and-installation)
   * [To run server](#to-run-server)
@@ -41,6 +42,10 @@
 ## Architecture Diagram
 
 ![alt text](misc/Unrivaled_Architecture_Diagram.svg)
+
+## NLP Process Flow
+
+![alt text](misc/nlp.png)
 
 ## Software Requirements
  * [Julia](https://julialang.org/downloads/)
