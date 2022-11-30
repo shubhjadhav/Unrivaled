@@ -1,5 +1,21 @@
 # Unrivaled
 
+- [Files and Folder Structure](#files-and-folder-structure)
+  * [Julia Server](#julia-server)
+  * [Julia NLP Engine](#julia-nlp-engine)
+  * [DB Connection](#db-connection)
+  * [UI](#ui)
+- [Setup and Installation](#setup-and-installation)
+  * [To run server](#to-run-server)
+  * [To run UI](#to-run-ui)
+- [Coding Practices](#coding-practices)
+  * [Naming Conventions](#naming-conventions)
+  * [Comments](#comments)
+  * [Commits](#commits)
+  * [Format and Styles](#format-and-styles)
+  * [Project Flow](#project-flow)
+  * [How It Works](#how-it-works)
+
 ## Files and Folder Structure
 
 ### Julia Server
