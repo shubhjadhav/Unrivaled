@@ -36,7 +36,7 @@
 
 ## Architecture Diagram
 
-![alt text](Unrivaled_Architecture_Diagram.svg)
+![alt text](misc/Unrivaled_Architecture_Diagram.svg)
 
 ## Setup and Installation
 
@@ -125,3 +125,10 @@
     * We used "cosine similarity and correlation" between the two vectors and then create the score based on that. Cosine similarity measures the similarity between two 
       vectors of an inner product space. It is measured by the cosine of the angle between two vectors and determines whether two vectors are pointing in roughly the same 
       direction. It is often used to measure document similarity in text analysis
+
+## Project Demo
+
+![alt text](misc/login_screen.png)
+![alt text](misc/document_view_1.png)
+![alt text](misc/document_view_2.png)
+![alt text](misc/analytics_view.png)
