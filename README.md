@@ -5,6 +5,7 @@
   * [Julia NLP Engine](#julia-nlp-engine)
   * [DB Connection](#db-connection)
   * [UI](#ui)
+- [Architecture Diagram](#architecture-diagram)
 - [Setup and Installation](#setup-and-installation)
   * [To run server](#to-run-server)
   * [To run UI](#to-run-ui)
@@ -32,6 +33,10 @@
 ### UI
  * This folder contains programs for UI
  * We have used ReactJS with Redux to implement the UI
+
+## Architecture Diagram
+
+![alt text](Unrivaled_Architecture_Diagram.svg)
 
 ## Setup and Installation
 
