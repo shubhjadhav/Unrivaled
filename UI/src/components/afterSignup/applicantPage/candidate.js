@@ -21,6 +21,7 @@ class Candidate extends Component {
     } 
 
     componentDidMount(){
+        this.props.setLoading(true)
         this.props.getAllResumes();
         this.props.getAllJDs();
     }
@@ -51,10 +52,7 @@ class Candidate extends Component {
         };
 
         this.props.setLoading(true)
-
-        setTimeout(() => {
-            this.props.analytics(body, customConfig)
-        }, 3000);
+        this.props.analytics(body, customConfig)
     }
 
     render() { 

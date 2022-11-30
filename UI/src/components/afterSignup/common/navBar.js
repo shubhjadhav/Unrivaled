@@ -3,9 +3,9 @@ import documentLogo from "../../../images/folders.png";
 import profile from "../../../images/man.png";
 import settings from "../../../images/configuration.png";
 import notifications from "../../../images/notification.png";
-import logout from "../../../images/shutdown.png";
+import logoutLogo from "../../../images/shutdown.png";
 import { connect } from "react-redux";
-import { setAnalyticsView } from '../../../store/mainSlice.js';
+import { setAnalyticsView, logout } from '../../../store/mainSlice.js';
 import "./common.css";
 
 class NavBar extends Component {
@@ -34,7 +34,7 @@ class NavBar extends Component {
                         <img alt='' src={settings} />
                     </div>
                     <div className='logo settings' >
-                        <img alt='' src={logout} />
+                        <img alt='' src={logoutLogo} onClick={this.props.logout}/>
                     </div>
                 </div>
         );
@@ -49,6 +49,6 @@ const mapStateToProps = (state) => {
     };
 };
   
-const mapDispatch = { setAnalyticsView };
+const mapDispatch = { setAnalyticsView, logout };
  
 export default connect(mapStateToProps, mapDispatch)(NavBar);

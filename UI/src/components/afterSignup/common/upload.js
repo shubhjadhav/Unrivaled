@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "./common.css";
 import upload from "../../../images/upload.png";
 import { connect } from "react-redux";
-import { uploadFile } from '../../../store/mainSlice.js';
+import { uploadFile, setLoading, getAllResumes, getAllJDs } from '../../../store/mainSlice.js';
 class Upload extends Component {
 
     constructor() {
@@ -29,6 +29,7 @@ class Upload extends Component {
         reader.onloadend = (e) => {
             const data = {
                 "name": file.name,
+                "username": "shubham",
                 "type": file.type,
                 "docType": this.props.docType ? "resume" : "jd",
                 "file": e.target.result,
@@ -43,11 +44,14 @@ class Upload extends Component {
             };
     
             this.props.uploadFile(body, customConfig)
+            this.props.setLoading(true);
+
+            setTimeout(() => {
+                this.props.getAllResumes();
+                this.props.getAllJDs();               
+            }, 500);
 
         }
-
-
-        console.log("upload")
   
     };
 
@@ -73,6 +77,6 @@ class Upload extends Component {
  
 const mapStateToProps = (state) => { return {};};
   
-const mapDispatch = { uploadFile };
+const mapDispatch = { uploadFile, setLoading, getAllResumes, getAllJDs };
  
 export default connect(mapStateToProps, mapDispatch)(Upload);

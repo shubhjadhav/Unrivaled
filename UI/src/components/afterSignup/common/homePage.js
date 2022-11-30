@@ -5,22 +5,16 @@ import { connect } from "react-redux";
 import setAnalyticsView from '../../../store/mainSlice.js';
 import Analytics from '../analytics/analytics';
 import Candidate from '../applicantPage/candidate';
-import { Audio } from  'react-loader-spinner';
 
 class HomePage extends Component {
 
     render() { 
 
         return (
-            <>
-                <div className={`${this.props.loader ? 'loading' : ''} home-page-wrapper`}>
-                    <NavBar />
-                    { this.props.analyticsView ? <Analytics/> : <Candidate/> }
-                </div>
-                <div className={`loader ${this.props.loader ? 'loader-visible' : ''}`}>
-                    <Audio visible={this.props.loader}/>
-                </div>
-            </>
+            <div className={`${this.props.loader ? 'loading' : ''} home-page-wrapper`}>
+                <NavBar />
+                { this.props.analyticsView ? <Analytics/> : <Candidate/> }
+            </div>
         );
     }
 }

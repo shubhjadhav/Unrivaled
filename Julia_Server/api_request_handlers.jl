@@ -1,16 +1,42 @@
-using Oxygen
+using JSON
+include("../DB_Connections/db_connections.jl")
+include("../Julia_NLP_Engine/nlp_pipeline.jl")
 
-include("api_methods.jl")
+function upload_file(req)
+  str = String(req.body)
+  file_upload(JSON.parse(str))
+  return true
+end
 
-@post "/uploadFile" upload_file
+function login(req)
+  str = String(req.body)
+  return is_registered_user(JSON.parse(str))
+end
 
-@post "/saveUserDeatils" save_user_details
 
-@post "/analyze" analytics
+function get_all_resumes_from_db()
+  return get_all_resumes()
+end
 
-@get "/getAllResumes" get_all_resumes_from_db
+function get_all_jds_from_db()
+  return get_all_jds()
+end
 
-@get "/getAllJDs" get_all_jds_from_db
+function save_user_details(req)
+  str = String(req.body)
+  user_details = JSON.parse(str)
+  user_detail_upload(user_details)
+  return true
+end
 
-# start the web server
-serve()
+function analytics(req)
+  str = String(req.body)
+  data = JSON.parse(str)
+
+  resume = get_one_resume(data)
+  jd = get_one_jd(data)
+
+  results =  process_file(resume[1]["file"], jd[1]["file"])
+
+  return results
+end
