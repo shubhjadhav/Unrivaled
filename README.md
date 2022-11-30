@@ -1,11 +1,14 @@
 # Unrivaled
 
+## Contents
+
 - [Files and Folder Structure](#files-and-folder-structure)
   * [Julia Server](#julia-server)
   * [Julia NLP Engine](#julia-nlp-engine)
   * [DB Connection](#db-connection)
   * [UI](#ui)
 - [Architecture Diagram](#architecture-diagram)
+- [Software Requirements](#software-requirements)
 - [Setup and Installation](#setup-and-installation)
   * [To run server](#to-run-server)
   * [To run UI](#to-run-ui)
@@ -38,6 +41,13 @@
 ## Architecture Diagram
 
 ![alt text](misc/Unrivaled_Architecture_Diagram.svg)
+
+## Software Requirements
+ * [Julia](https://julialang.org/downloads/)
+ * [MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/)
+ * [NodeJS](https://nodejs.org/en/download/)
+ * [Node Package Manager](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+ * [ReactJS](https://reactjs.org/docs/getting-started.html)
 
 ## Setup and Installation
 
