@@ -239,7 +239,7 @@ function get_embeddings(crps)
 
     N = size(padded_docs,1)
     vocab_size = length(doc_term_matrix.terms)+1
-    max_features = 300
+    max_features = 50
 
     print(vocab_size)
 
