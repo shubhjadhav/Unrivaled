@@ -1,5 +1,7 @@
 # Unrivaled
 
+## Contents
+
 - [Files and Folder Structure](#files-and-folder-structure)
   * [Julia Server](#julia-server)
   * [Julia NLP Engine](#julia-nlp-engine)
