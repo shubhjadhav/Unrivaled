@@ -102,6 +102,8 @@ export const slice = createSlice({
 		},
 		setAnalyticsView: (state, action) => {
 			state.analyticsView = action.payload
+			state.resumeSelected = null
+			state.jdSelected = null
 		},
 		setLoading: (state, action) => {
 			state.loader = action.payload
@@ -109,6 +111,11 @@ export const slice = createSlice({
 		logout: (state, action) => {
 			state.login = false
 			state.username = ""
+			state.analyticsView = false
+			state.resumeSelected = null
+			state.jdSelected = null
+			state.resumeList = []
+			state.jdList = []
 		},
 	 },
 	extraReducers: {
@@ -120,6 +127,8 @@ export const slice = createSlice({
 
 			state.analyticsView = true
 			state.loader = false
+			state.resumeSelected = null
+			state.jdSelected = null
 		},
 		[getAllResumes.fulfilled]: (state, action) => {
 			state.resumeList = action.payload
