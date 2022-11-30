@@ -27,11 +27,13 @@
  * UI color scheme: Blue
  
  ### Project Flow
+  1. Authentication
+   * The user has to login with their user name and password
+     
   1. Upload Resume
-     * The user uploads the resume that he/she wants to compare it with the job descreption
-     * In this version, we are accepting pdf file formats and the user is able to upload one resume for one score output
-     * In future versions, we will add docx file as a file upload option and also the user will be able to upload multiple resumes to compare with the job descreption and 
-       choose the one that matches the most
+   * The user uploads the resume that he/she wants to compare it with the job descreption
+   * In this version, we are accepting pdf file formats and the user is able to upload one resume for one score output
+   * In future versions, we will add docx file as a file upload option and also the user will be able to upload multiple resumes to compare with the job descreption and choose the one that matches the most
        
   2. Upload Job Descreption
      * The user uploads the job descreption that he/she wants to mathc with the resume uploaded
