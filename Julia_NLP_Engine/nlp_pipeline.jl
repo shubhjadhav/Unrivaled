@@ -186,7 +186,7 @@ function load_embeddings(embedding_file)
 end
 
 
-embeddings, vocab = load_embeddings("../Julia_NLP_Engine/Embeddings/glove.6B.300d.txt")
+embeddings, vocab = load_embeddings("../Julia_NLP_Engine/Embeddings/glove.6B.50d.txt")
 
 
 
